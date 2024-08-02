@@ -23,7 +23,7 @@ while game_is_on:
     counter += 1
     if counter == 6:
         car = CarManager()
-
+        counter = 0
     # TODO 1: Counter not working
 
 

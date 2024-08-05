@@ -21,6 +21,7 @@ while game_is_on:
     time.sleep(SLEEP_TIME)
     screen.update()
     counter += 1
+
     if counter == 6:
         car = CarManager()
         counter = 0

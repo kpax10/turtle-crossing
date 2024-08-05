@@ -15,11 +15,18 @@ class CarManager(Turtle):
         self.penup()
         self.shapesize(1, 2)
         self.setheading(180)
-        self.goto(290, random.randint(-250, 250))
-        self.move()
+        self.y_cor = random.randint(-250, 250)
+        self.goto(290, self.y_cor)
 
     def move(self):
-        self.forward(STARTING_MOVE_DISTANCE)
+        for _ in range(10):
+            new_x = self.xcor() - MOVE_INCREMENT
+            self.goto(new_x, self.y_cor)
+        # self.forward(STARTING_MOVE_DISTANCE)
+        # self.forward(STARTING_MOVE_DISTANCE)
+        # self.forward(STARTING_MOVE_DISTANCE)
+        # self.forward(STARTING_MOVE_DISTANCE)
+
 
 # TODO 2: Create cars that are 20px high by 40px wide that are randomly generated along
 #  the y-axis and move to the left edge of the screen. No cars should be generated in

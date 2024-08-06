@@ -19,13 +19,10 @@ class CarManager(Turtle):
         self.goto(290, self.y_cor)
 
     def move(self):
-        for _ in range(10):
-            new_x = self.xcor() - MOVE_INCREMENT
-            self.goto(new_x, self.y_cor)
-        # self.forward(STARTING_MOVE_DISTANCE)
-        # self.forward(STARTING_MOVE_DISTANCE)
-        # self.forward(STARTING_MOVE_DISTANCE)
-        # self.forward(STARTING_MOVE_DISTANCE)
+        self.forward(MOVE_INCREMENT)
+        screen.ontimer(self.move, 10)
+            # new_x = self.xcor() - MOVE_INCREMENT
+            # self.goto(new_x, self.y_cor)
 
 
 # TODO 2: Create cars that are 20px high by 40px wide that are randomly generated along

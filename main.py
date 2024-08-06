@@ -17,14 +17,22 @@ screen.onkey(key='w', fun=player.move)
 counter = 0
 
 game_is_on = True
+
+# car = CarManager()
+
 while game_is_on:
     time.sleep(SLEEP_TIME)
     screen.update()
     counter += 1
 
+    # car.move()
+
     if counter == 6:
         car = CarManager()
         counter = 0
+        screen.ontimer(car.move, 10)
+        car.move()
+
     # TODO 1: Counter not working
 
 

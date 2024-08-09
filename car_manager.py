@@ -6,27 +6,27 @@ STARTING_MOVE_DISTANCE = 5
 MOVE_INCREMENT = 10
 
 
-class CarManager(Turtle):
+class CarManager:
 
     def __init__(self):
-        super().__init__()
-        self.shape('square')
-        self.color(random.choice(COLORS))
-        self.penup()
-        self.shapesize(1, 2)
-        self.setheading(180)
-        self.y_cor = random.randint(-250, 250)
-        self.goto(290, self.y_cor)
+        self.all_cars = []
+        self.car_speed = STARTING_MOVE_DISTANCE
 
-    def move(self):
-        self.forward(MOVE_INCREMENT)
-        screen.ontimer(self.move, 10)
-            # new_x = self.xcor() - MOVE_INCREMENT
-            # self.goto(new_x, self.y_cor)
+    def create_car(self):
+        random_chance = random.randint(1, 6)
+        if random_chance == 1:
+            new_car = Turtle("square")
+            new_car.shape('square')
+            new_car.color(random.choice(COLORS))
+            new_car.penup()
+            new_car.shapesize(1, 2)
+            random_y = random.randint(-250, 250)
+            new_car.goto(290, random_y)
+            self.all_cars.append(new_car)
 
+    def move_cars(self):
+        for car in self.all_cars:
+            car.backward(self.car_speed)
 
-# TODO 2: Create cars that are 20px high by 40px wide that are randomly generated along
-#  the y-axis and move to the left edge of the screen. No cars should be generated in
-#  the top and bottom 50px of the screen (think of it as a safe zone for our little
-#  turtle). Hint: generate a new car only every 6th time the game loop runs. If you
-#  get stuck, check the video walkthrough in Step 4.
+    def level_up(self):
+        self.car_speed += MOVE_INCREMENT
